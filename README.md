@@ -1,0 +1,2 @@
+# Optimal-Control-and-Energy-Management-in-Microgrids-using-Digital-Twin-and-AI
+This project focuses on the development of a Digital Twin for a low-voltage residential microgrid to enhance energy management and optimal control. The system models a village distribution network equipped with distributed energy resources, including solar photovoltaic (PV) systems, Battery Energy Storage Systems (ESS)
