@@ -416,6 +416,12 @@ def on_message(client, userdata, msg):
     print(f"\n--- Hour {i}:00 ---")
     print(f"Status: Load={p_all:.3f} MW, PV={pv_value*2:.3f} kW, SOC_Old={current_soc*100:.1f}%")
     print(f"Decision: Battery Power = {power_per_batt:.3f} MW (SOC -> {next_soc*100:.1f}%)")
+    control_payload = {
+        "hour": i,
+        "battery_cmd_mw": power_per_batt,
+        "new_soc_percent": next_soc * 100
+    }
+    client.publish("microgrid/control/battery", json.dumps(control_payload))
 
     if (voltage_BUS < 20.9) or (power_per_batt > 0):
         sim.prepare_loadflow('balanced')
